@@ -1,0 +1,9 @@
+<ul>
+  <li *ngFor="let item of items">
+    <a [routerLink]="'/news/' + item.id">
+      {{item.title}}
+    </a>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
