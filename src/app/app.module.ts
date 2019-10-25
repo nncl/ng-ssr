@@ -13,7 +13,7 @@ import { NewsSingleComponent } from './pages/news-single/news-single.component';
     NewsSingleComponent
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule
   ],
   providers: [],
