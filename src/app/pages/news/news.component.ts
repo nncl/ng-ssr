@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-news',
@@ -19,10 +20,11 @@ export class NewsComponent implements OnInit {
     }
   ];
 
-  constructor() {
+  constructor(public title: Title) {
   }
 
   ngOnInit() {
+    this.title.setTitle(`News`);
   }
 
 }
