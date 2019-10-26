@@ -24,7 +24,7 @@ import { join } from 'path';
 const app = express();
 
 const PORT = process.env.PORT || 4000;
-const DIST_FOLDER = join(process.cwd(), 'dist/browser');
+const DIST_FOLDER = join(process.cwd(), 'dist/csr');
 
 const detector = require('spider-detector');
 
@@ -54,9 +54,9 @@ app.get('*.*', express.static(DIST_FOLDER, {
 // All regular routes use the Universal engine
 app.get('*', (req, res) => {
   if (req.isSpider()) {
-    res.render(join(DIST_FOLDER, 'ssr', 'index'), { req });
+    res.render(join(DIST_FOLDER, '..', 'ssr', 'index.html'), { req });
   } else {
-    res.sendFile(join(DIST_FOLDER, 'csr', 'index'));
+    res.sendFile(join(DIST_FOLDER, '..', 'csr', 'index.html'));
   }
 });
 
