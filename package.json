@@ -11,7 +11,7 @@
     "compile:server": "webpack --config webpack.server.config.js --progress --colors",
     "serve:ssr": "node dist/server",
     "build:ssr": "npm run build:client-and-server-bundles && npm run compile:server",
-    "build:client-and-server-bundles": "ng build --prod && ng run ng-ssr:server:production --bundleDependencies all"
+    "build:client-and-server-bundles": "ng build --prod && ng build --configuration='ssr' && ng run ng-ssr:server:production --bundleDependencies all"
   },
   "private": true,
   "dependencies": {
@@ -30,6 +30,7 @@
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
     "express": "^4.15.2",
     "rxjs": "~6.4.0",
+    "spider-detector": "^2.0.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },
